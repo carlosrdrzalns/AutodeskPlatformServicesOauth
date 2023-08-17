@@ -29,7 +29,7 @@ namespace ForgeSample.Controllers.API
                     PublicToken = await Get2LeggedTokenAsync(new Scope[] { Scope.ViewablesRead });
                     PublicToken.ExpiresAt = DateTime.UtcNow.AddSeconds(PublicToken.expires_in);
                 }
-                return PublicToken;
+                return Newtonsoft.Json.JsonConvert.SerializeObject(PublicToken);
 
             }
             catch(Exception exp)
